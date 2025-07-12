@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Log In · SkillSwap{% endblock %}
+{% block content %}
+<div class="w-[22rem] rounded-xl bg-white/60 backdrop-blur shadow p-8">
+  <h2 class="text-2xl font-semibold text-center mb-6">Welcome back</h2>
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"
+            class="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg">
+      Log In
+    </button>
+  </form>
+  <p class="text-center text-sm mt-4">
+    No account?
+    <a href="{% url 'signup' %}" class="text-primary-600 hover:underline">Sign up</a>
+  </p>
+</div>
+{% endblock %}

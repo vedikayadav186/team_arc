@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · SkillSwap{% endblock %}
+{% block content %}
+<div class="max-w-4xl w-full px-4">
+  <div class="rounded-2xl bg-white shadow p-8">
+    <h2 class="text-3xl font-semibold mb-2">Dashboard</h2>
+    <p class="text-gray-600 mb-6">
+      Glad you’re here, {{ user.first_name|default:user.username }}.
+      This is your SkillSwap home base.
+    </p>
+
+    <!-- quick‑stats cards -->
+    <div class="grid sm:grid-cols-3 gap-6 mb-8">
+      <div class="rounded-xl bg-primary-100 p-4">
+        <h3 class="text-sm font-medium text-primary-700">Skills Offered</h3>
+        <p class="text-3xl font-bold mt-2">{{ user.profile.skills_offered.count }}</p>
+      </div>
+      <div class="rounded-xl bg-primary-100 p-4">
+        <h3 class="text-sm font-medium text-primary-700">Skills Wanted</h3>
+        <p class="text-3xl font-bold mt-2">{{ user.profile.skills_needed.count }}</p>
+      </div>
+      <div class="rounded-xl bg-primary-100 p-4">
+        <h3 class="text-sm font-medium text-primary-700">Pending Swaps</h3>
+        <p class="text-3xl font-bold mt-2">{{ user.pending_swaps.count }}</p>
+      </div>
+    </div>
+
+    <!-- placeholder for upcoming features -->
+    <div class="border-dashed border-2 border-primary-200 rounded-xl p-6 text-center text-primary-600">
+      Your upcoming swaps and recommendations will appear here.
+    </div>
+  </div>
+</div>
+{% endblock %}
